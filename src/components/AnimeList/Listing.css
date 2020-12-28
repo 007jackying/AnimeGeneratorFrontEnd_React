@@ -1,0 +1,45 @@
+.animethisseason {
+  background-color: lightgrey;
+  color:black;
+  }
+
+  .truncate-overflow {
+    --max-lines: 3;
+    max-height: calc(var(--lh) * var(--max-lines));
+    overflow: hidden;
+  }
+
+  .truncate-overflow::before {
+    content: "...";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .card {
+    float: left;
+    margin: 10px;
+    width: 200px;
+    height: 400px;
+    padding: 5px;
+}
+
+.card-img-top {
+  height: 75% !important;
+}
+
+.card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.animethisseason{
+  margin-top: 10px;
+}
+
+.animethisseason h2{
+  text-align: left;
+  padding: 3px 0px 3px 15px;
+}
