@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import './Listing.css';
 
 
-const Listing = () => {
+const Listing = (type) => {
   const [posts, setPosts] = useState(null);
   const [loading, setLoading] = useState(true);
   // const [animes, setAnimes] = useState(null);

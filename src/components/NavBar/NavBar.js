@@ -12,7 +12,7 @@ const NBar = () => {
     <bootstrap.Nav className="mr-auto">
       <bootstrap.Nav.Link as={Link} to="/Home">Home</bootstrap.Nav.Link>
       <bootstrap.Nav.Link as={Link} to="/About">About</bootstrap.Nav.Link>
-      <bootstrap.Nav.Link as={Link} href="#pricing">Pricing</bootstrap.Nav.Link>
+      <bootstrap.Nav.Link as={Link} to="/Gatcha">Gatcha!</bootstrap.Nav.Link>
     </bootstrap.Nav>
     <bootstrap.Form inline>
       <bootstrap.FormControl type="text" placeholder="Search" className="mr-sm-2" />
