@@ -34,3 +34,12 @@
   text-overflow: ellipsis;
   max-width: 200px;
 }
+
+.animethisseason{
+  margin-top: 10px;
+}
+
+.animethisseason h2{
+  text-align: left;
+  padding: 3px 0px 3px 15px;
+}

@@ -1,0 +1,23 @@
+body{
+    color: black;
+}
+.details {
+    width: fit-content;
+}
+
+.custom-card {
+    background-color: white;
+    margin-top: 10px;
+}
+
+.movie-Description {
+    padding: 10px;
+}
+
+.movie-Description>p {
+    text-align: justify;
+}
+
+.movie-Description>span {
+    float: left !important;
+}

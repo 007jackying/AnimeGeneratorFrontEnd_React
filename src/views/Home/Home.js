@@ -6,7 +6,6 @@ import {Listing} from '../../components/AnimeList';
 const Home = props => {
   return (
     <div className="HomeCSS">
-        <h1>Welcome to DreamAnime !</h1>
         <Listing/>
         
 

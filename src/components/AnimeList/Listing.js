@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import {Card,Button} from 'react-bootstrap';
+import { Card, Button, Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 
 import './Listing.css';
 
 
-const Listing = () => {
+const Listing = (type) => {
   const [posts, setPosts] = useState(null);
   const [loading, setLoading] = useState(true);
   // const [animes, setAnimes] = useState(null);
 
   useEffect(async () => {
-    const result = await axios.post('http://localhost:3300/anime/seasonlist/',{year:thisYear(), season:seasonThisYear() ,type: "TV"})
+    const result = await axios.post('http://localhost:3300/anime/seasonlist/', { year: thisYear(), season: seasonThisYear(), type: "TV" })
     // const data = await result.json();
     const item = result.data;
-     setPosts(item);
-     setLoading(false);
-     console.log("Results: ", posts);
+    setPosts(item);
+    setLoading(false);
+    console.log("Results: ", posts);
 
-  },[])
+  }, [])
+
 
 
 
@@ -44,19 +47,27 @@ const Listing = () => {
   }
 
   function MovieCardList(props) {
+    console.log("props: ", props);
+
     const movies = props.movies;
-    const movieCards = movies.map((movie)=>
+    console.log("movies: ", movies);
+    const movieCards = movies.map((movie) =>
       <Card>
         <Card.Img variant="top" src={movie.picture} />
         <Card.Body>
-          <Card.Title className="card-title">{movie.title}</Card.Title>
+          <Card.Title key={movie.title} className="card-title">{movie.title}</Card.Title>
           {/* <Card.Text className="truncate-overflow">
             {movie.synopsis}
           </Card.Text> */}
-          <Button key={movie.title} variant="primary">View Details</Button>
+          <Link to={{
+            pathname: '/viewDetails/' + movie.title,
+            value: {
+              movie
+            }
+          }} variant="primary">Details</Link>
         </Card.Body>
       </Card>
-  );
+    );
     return (
       <div>{movieCards}</div>
     );
@@ -65,10 +76,11 @@ const Listing = () => {
   return (
     <>
       <div className="animethisseason">
-        <h2>Anime Released in {thisYear()}:</h2>
-        {loading ? <div>Loading...</div> : <div><MovieCardList movies={posts}/></div>
         
-      }
+        <h2>Anime Released in {thisYear()}:</h2>
+        {loading ? <Spinner animation="border" /> : <div><MovieCardList movies={posts} /></div>
+
+        }
       </div>
 
     </>
