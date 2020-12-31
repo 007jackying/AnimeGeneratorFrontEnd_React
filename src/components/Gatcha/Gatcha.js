@@ -15,6 +15,7 @@ const Gatcha = () => {
     const username = watch('username');
     const [posts, setPosts] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [click,setClick]= useState(true);
     const onSubmit = async data => {
         console.log("onsubmit: ", data);
         const response = await axios.get(`http://localhost:3300/anime/getuser/${data.username}`);
@@ -27,6 +28,7 @@ const Gatcha = () => {
         }
         console.log("after filtered: ", animelist);
         let random = animelist.sort(() => .5 - Math.random()).slice(0, n);
+        console.log("random ",random)
         const animeurlformat = 'https://myanimelist.net';
         for (let i = 0; i < random.length; i++) {
             let aurl = random[i].animeUrl;
@@ -35,6 +37,7 @@ const Gatcha = () => {
         }
         setPosts(random);
         setLoading(false);
+        setClick(false);
         console.log("random generated: ", random);
     };
 
@@ -73,7 +76,7 @@ const Gatcha = () => {
                     {/* errors will return when field validation fails  */}
                     {errors.username && <span>This field is required</span>}
 
-                    <input type="submit" value="Import" />
+                    <input type="submit" value={click? "TRY YOUR LUCK!" : "Try Again!"} />
                 </form>
 
             </div>

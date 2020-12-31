@@ -9,16 +9,28 @@ const CardFlip = (props) => {
     console.log("props in card", movie)
     const [isFlipped, setIsFlipped] = useState(false);
     const [count, setCount] = useState(0);
+    const mystyle = {
+        padding: "70px"
+      };
 
     const handleClick = () => {
         setIsFlipped(!isFlipped);
+        // <Card onClick={handleClick} className="p-3">
+        // <Card.Img variant="top" src='https://wallpaperaccess.com/full/1152503.jpg' />
+        //     <blockquote className="blockquote mb-0 card-body">
+        //         <h1>{movie.count}</h1>
+        //     </blockquote>
+        // </Card>
     };
     return (
-        <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-            <Card onClick={handleClick} className="p-3">
-                <blockquote className="blockquote mb-0 card-body">
-                    <h1>{movie.count}</h1>
-                </blockquote>
+        <ReactCardFlip isFlipped={isFlipped} flipSpeedFrontToBack={1.0}
+            flipSpeedBackToFront={1.0}
+            flipDirection="vertical">
+            <Card onClick={handleClick} bg="primary" text="white" style={{cursor:"pointer"}} className="frontflipcard">
+                <h1 style={mystyle}>{movie.count}</h1>
+                <Card.Text>
+                    Click ME !
+        </Card.Text>
             </Card>
             <Card >
                 <Card.Img variant="top" src={movie.animeImagePath} />
