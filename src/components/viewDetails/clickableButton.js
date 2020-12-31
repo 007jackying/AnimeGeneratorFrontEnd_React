@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, Spinner,Image, Col, Row, Container } from 'react-bootstrap';
+import { Card, Button, Spinner, Image, Col, Row, Container, ResponsiveEmbed } from 'react-bootstrap';
 import axios from 'axios';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import { func } from "prop-types";
@@ -32,27 +32,31 @@ const ViewDetails = () => {
 
     function MovieCardListDetailed() {
         const data = posts.data.data;
-        console.log(data);
+        console.log("moviecard received", data);
         if (data) {
             return (
                 <Container className="custom-card">
-                <Row style={{margin: 10}, {padding: 10}}>
-                    <Col sm="4">
-                        <Image src={data.picture}/>
-                    </Col>
-                    <Col sm="8" className="movie-Description">
-                        <h4>{data.title}</h4>
-                        <span><b>Score: </b>{data.score}</span><br/>
-                        <span><b>Type: </b>{data.type}</span><br/>
-                        <span><b>Episodes: </b>{data.episodes}</span><br/>
-                        <span><b>Aired: </b>{data.aired}</span><br/>
-                        <span><b>Status: </b>{data.status}</span><br/>
-                        <span><b>Genres: </b>{data.genres.toString()}</span><br/>
+                    <Row style={{ margin: 10 }, { padding: 10 }}>
+                        <Col sm="4">
+                            <Image src={data.picture} />
+                            <span><b>Score: </b>{data.score}</span><br />
+                            <span><b>Type: </b>{data.type}</span><br />
+                            <span><b>Episodes: </b>{data.episodes}</span><br />
+                            <span><b>Aired: </b>{data.aired}</span><br />
+                            <span><b>Status: </b>{data.status}</span><br />
+                            <span><b>Genres: </b>{data.genres.toString()}</span><br />
+                        </Col>
+                        <Col sm="8" className="movie-Description">
+                            <h4>{data.title}</h4>
+                            <ResponsiveEmbed aspectRatio="16by9">
+                                <embed type="image/svg+xml" src={data.trailer} />
+                            </ResponsiveEmbed>
+                            
 
-                        <p>{data.synopsis}</p>
+                            <p>{data.synopsis}</p>
 
-                    </Col>
-                </Row>
+                        </Col>
+                    </Row>
                 </Container>
             )
 

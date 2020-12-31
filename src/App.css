@@ -1,4 +1,9 @@
 body {
+  background-image: url('./img/39033.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
     color: white;
     padding: 40px;
     font-family: Arial;
