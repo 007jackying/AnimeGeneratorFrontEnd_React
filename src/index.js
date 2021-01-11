@@ -7,7 +7,7 @@ import { Routes } from './routes'; // where we are going to specify our routes
 import './App.css';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://134.122.40.2/';
+axios.defaults.baseURL = 'https://134.122.40.2/';
 
 ReactDOM.render(
   <>
