@@ -6,8 +6,10 @@ import { func } from "prop-types";
 import { useForm } from "react-hook-form";
 import ReactCardFlip from 'react-card-flip';
 import { CardFlip } from "../CardFlip";
+import './Gatcha.css';
 // console.log("Results: ", posts);
 const Gatcha = () => {
+    
 
     const { register, handleSubmit, watch, errors } = useForm();
     // const onSubmit = data => console.log("submitted",data);
@@ -18,7 +20,7 @@ const Gatcha = () => {
     const [click,setClick]= useState(true);
     const onSubmit = async data => {
         console.log("onsubmit: ", data);
-        const response = await axios.get(`http://localhost:3300/anime/getuser/${data.username}`);
+        const response = await axios.get(`anime/getuser/${data.username}`);
         console.log("responded data: ", response.data);
 
         var animelist = response.data.data.filter(PlanToWatchList);
@@ -65,14 +67,36 @@ const Gatcha = () => {
             <>{movieCards}</>
         );
     }
+    // return (
+    //     <>
+    //         <div>
+    //             <form onSubmit={handleSubmit(onSubmit)}>
+    //                 {/* register your input into the hook by invoking the "register" function */}
+    //                         Please enter Myanimelist.net username: <input name="username"  ref={register({ required: true })}/> 
+    //                 {/* errors will return when field validation fails  */}
+    //                 {errors.username && <span>This field is required</span>}
 
+    //                 <input type="submit" value={click? "TRY YOUR LUCK!" : "Try Again!"} />
+    //             </form>
+
+    //         </div>
+    //         {loading ? <Spinner animation="border" /> : <div><MovieCardList movies={posts} /></div>
+
+    //         }
+
+
+
+
+
+    //     </>
+    // );
 
     return (
         <>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     {/* register your input into the hook by invoking the "register" function */}
-                            Please enter Myanimelist.net username: <input name="username" ref={register({ required: true })} />
+                            Please enter Myanimelist.net username: <input name="username"  ref={register({ required: true })}/> 
                     {/* errors will return when field validation fails  */}
                     {errors.username && <span>This field is required</span>}
 
@@ -80,7 +104,7 @@ const Gatcha = () => {
                 </form>
 
             </div>
-            {loading ? <Spinner animation="border" /> : <div><MovieCardList movies={posts} /></div>
+            {loading ? <Image className="replacehover"  src="https://media.giphy.com/media/lT4N7JiPGATIhVwR91/giphy.gif"/> : <div><MovieCardList movies={posts} /></div>
 
             }
 

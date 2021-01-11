@@ -3,15 +3,17 @@ import ReactCardFlip from "react-card-flip";
 import { Card, Button, Spinner, Image, Col, Row, Container } from 'react-bootstrap';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import './CardFlip.css';
+import picture from '../../img/cardback.png';
 
 const CardFlip = (props) => {
     const movie = props.data;
     console.log("props in card", movie)
+
     const [isFlipped, setIsFlipped] = useState(false);
     const [count, setCount] = useState(0);
     const mystyle = {
         padding: "70px"
-      };
+    };
 
     const handleClick = () => {
         setIsFlipped(!isFlipped);
@@ -26,13 +28,11 @@ const CardFlip = (props) => {
         <ReactCardFlip isFlipped={isFlipped} flipSpeedFrontToBack={1.0}
             flipSpeedBackToFront={1.0}
             flipDirection="vertical">
-            <Card onClick={handleClick} bg="primary" text="white" style={{cursor:"pointer"}} className="frontflipcard">
-                <h1 style={mystyle}>{movie.count}</h1>
-                <Card.Text>
-                    Click ME !
-        </Card.Text>
+            <Card onClick={handleClick} bg="primary" text="white" style={{ cursor: "pointer" }} className="frontflipcard">
+            <Card.Img  src={picture}/>
+                
             </Card>
-            <Card >
+            <Card>
                 <Card.Img variant="top" src={movie.animeImagePath} />
                 <Card.Body>
                     <Card.Title key={movie.animeTitle} className="card-title">{movie.animeTitle}</Card.Title>

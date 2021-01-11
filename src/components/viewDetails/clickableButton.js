@@ -10,14 +10,14 @@ const ViewDetails = () => {
     let data = useLocation();
     const link = data.value.movie.link;
     // console.log("id passed ",data.value.movie.link)
-    // const result = axios.post('http://localhost:3300/anime/getByurl/',{link:link})
+    // const result = axios.post('http://localhost:5000/anime/getByurl/',{link:link})
     // console.log(result);
     const [posts, setPosts] = useState({ id });
     const [loading, setLoading] = useState(true);
     // const [animes, setAnimes] = useState(null);
 
     useEffect(async () => {
-        const data = await axios.post('http://localhost:3300/anime/getByurl/', { link: link })
+        const data = await axios.post('anime/getByurl/', { link: link })
         // const data = await result.json();
         const item = await data;
         await setPosts(data);

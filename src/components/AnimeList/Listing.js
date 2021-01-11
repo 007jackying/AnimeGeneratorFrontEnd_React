@@ -13,7 +13,7 @@ const Listing = (type) => {
   // const [animes, setAnimes] = useState(null);
 
   useEffect(async () => {
-    const result = await axios.post('http://localhost:3300/anime/seasonlist/', { year: thisYear(), season: seasonThisYear(), type: "TV" })
+    const result = await axios.post('anime/seasonlist/', { year: thisYear(), season: seasonThisYear(), type: "TV" })
     // const data = await result.json();
     const item = result.data;
     setPosts(item);
