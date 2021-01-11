@@ -22,14 +22,14 @@ const NBar = () => {
   return (
 <>
   <bootstrap.Navbar bg="dark" variant="dark">
-    <bootstrap.Navbar.Brand href="/">DreamAnime</bootstrap.Navbar.Brand>
+    <bootstrap.Navbar.Brand href="/">DreamAnime BETA</bootstrap.Navbar.Brand>
     
     <bootstrap.Nav className="mr-auto">
       <bootstrap.Nav.Link as={Link} to="/Home">Home</bootstrap.Nav.Link>
       {currentUser? (<bootstrap.Nav.Link as={Link} to="/Profile">Profile</bootstrap.Nav.Link>):(<> <bootstrap.Nav.Link as={Link} to="/Register">Register</bootstrap.Nav.Link>
       <bootstrap.Nav.Link as={Link} to="/Login">Login</bootstrap.Nav.Link></>) }
      
-      <bootstrap.Nav.Link as={Link} to="/Gatcha">Gatcha!</bootstrap.Nav.Link>
+      <bootstrap.Nav.Link as={Link} to="/Gatcha">Gacha!</bootstrap.Nav.Link>
       {currentUser? (<bootstrap.Nav.Link  as={Link} to='/Home' onClick={logOut}>Logout</bootstrap.Nav.Link>): (<></>)}
     </bootstrap.Nav>
     <bootstrap.Form inline>

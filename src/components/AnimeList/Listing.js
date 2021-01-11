@@ -52,35 +52,42 @@ const Listing = (type) => {
     const movies = props.movies;
     console.log("movies: ", movies);
     const movieCards = movies.map((movie) =>
-      <Card>
-        <Card.Img variant="top" src={movie.picture} />
-        <Card.Body>
-          <Card.Title key={movie.title} className="card-title">{movie.title}</Card.Title>
-          {/* <Card.Text className="truncate-overflow">
-            {movie.synopsis}
-          </Card.Text> */}
-          <Link to={{
-            pathname: '/viewDetails/' + movie.title,
-            value: {
-              movie
-            }
-          }} variant="primary">Details</Link>
-        </Card.Body>
-      </Card>
+
+
+	
+
+		<figure class="card">
+
+			<img src={movie.picture} />
+
+			<figcaption>{movie.title}</figcaption>
+
+		</figure>
+
+
+
+
+
+     
     );
     return (
-      <div>{movieCards}</div>
+      <div class="wrapper">
+
+	<h2><strong>Latest Release: <span>({props.movies.length})</span></strong></h2>
+  <div class="cards">
+  {movieCards}
+  </div>
+      </div>
     );
   }
 
   return (
     <>
       <div className="animethisseason">
-        
-        <h2>Anime Released in {thisYear()}:</h2>
-        {loading ? <Spinner animation="border" /> : <div><MovieCardList movies={posts} /></div>
+        {loading ? <Spinner animation="border" /> : <MovieCardList movies={posts} />
 
         }
+
       </div>
 
     </>

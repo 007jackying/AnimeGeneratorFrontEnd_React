@@ -11,12 +11,10 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://www.thlee.site/';
 
 ReactDOM.render(
-  <>
-
-
+  <div className="wholepage container">
     <Router>
       <Routes />
     </Router>
-  </>,
+  </div>,
   document.getElementById('root')
 );
