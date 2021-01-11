@@ -6,8 +6,6 @@ import AuthService from "../../services/auth.service";
 // import './NavBar.css';
 
 const NBar = () => {
-  // const [showModeratorBoard, setShowModeratorBoard] = useState(false);
-  // const [showAdminBoard, setShowAdminBoard] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
@@ -20,7 +18,6 @@ const NBar = () => {
 
   const logOut = () => {
     AuthService.logout();
-    window.location.reload();
   };
   return (
 <>
@@ -33,7 +30,7 @@ const NBar = () => {
       <bootstrap.Nav.Link as={Link} to="/Login">Login</bootstrap.Nav.Link></>) }
      
       <bootstrap.Nav.Link as={Link} to="/Gatcha">Gatcha!</bootstrap.Nav.Link>
-      {currentUser? (<bootstrap.Nav.Link onClick={logOut}>Logout</bootstrap.Nav.Link>): (<></>)}
+      {currentUser? (<bootstrap.Nav.Link  as={Link} to='/Home' onClick={logOut}>Logout</bootstrap.Nav.Link>): (<></>)}
     </bootstrap.Nav>
     <bootstrap.Form inline>
       <bootstrap.FormControl type="text" placeholder="Search" className="mr-sm-2" />

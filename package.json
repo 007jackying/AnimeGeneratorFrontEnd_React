@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.6.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
+    "mal-scraper": "^2.11.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-axios": "^2.0.4",
