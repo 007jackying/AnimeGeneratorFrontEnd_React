@@ -1,3 +1,3 @@
 export const constats = {
-    "url": "http://134.122.40.2/"
+    "url": "https://www.thlee.site/"
 }
