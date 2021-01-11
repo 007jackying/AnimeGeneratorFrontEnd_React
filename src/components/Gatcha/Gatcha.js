@@ -104,7 +104,7 @@ const Gatcha = () => {
                 </form>
 
             </div>
-            {loading ? <Image className="replacehover"  src="https://media.giphy.com/media/lT4N7JiPGATIhVwR91/giphy.gif"/> : <div><MovieCardList movies={posts} /></div>
+            {loading ? <Image className="replacehover"  src="https://media.giphy.com/media/bzvjJOW9sN8aR09XC8/giphy.gif"/> : <div><MovieCardList movies={posts} /></div>
 
             }
 
