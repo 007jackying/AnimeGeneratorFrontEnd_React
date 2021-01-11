@@ -67,33 +67,10 @@ const Gatcha = () => {
             <>{movieCards}</>
         );
     }
-    // return (
-    //     <>
-    //         <div>
-    //             <form onSubmit={handleSubmit(onSubmit)}>
-    //                 {/* register your input into the hook by invoking the "register" function */}
-    //                         Please enter Myanimelist.net username: <input name="username"  ref={register({ required: true })}/> 
-    //                 {/* errors will return when field validation fails  */}
-    //                 {errors.username && <span>This field is required</span>}
-
-    //                 <input type="submit" value={click? "TRY YOUR LUCK!" : "Try Again!"} />
-    //             </form>
-
-    //         </div>
-    //         {loading ? <Spinner animation="border" /> : <div><MovieCardList movies={posts} /></div>
-
-    //         }
-
-
-
-
-
-    //     </>
-    // );
 
     return (
         <>
-            <div>
+            <div className="noNameDiv">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     {/* register your input into the hook by invoking the "register" function */}
                             Please enter Myanimelist.net username: <input name="username"  ref={register({ required: true })}/> 
@@ -104,7 +81,7 @@ const Gatcha = () => {
                 </form>
 
             </div>
-            {loading ? <Image className="replacehover"  src="https://media.giphy.com/media/bzvjJOW9sN8aR09XC8/giphy.gif"/> : <div><MovieCardList movies={posts} /></div>
+            {loading ? <Image className="replacehover"  src="https://media.giphy.com/media/bzvjJOW9sN8aR09XC8/giphy.gif"/> : <div class="cards"><MovieCardList movies={posts} /></div>
 
             }
 

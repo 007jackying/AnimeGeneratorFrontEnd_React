@@ -4,7 +4,15 @@
 
 
 }
+.react-card-flip {
+  width: 188px;
+  height: 388px;
+}
 
+.card{
+  display: inline-flexbox !important;
+  flex-direction: row !important;
+}
   .abs,
   h2:after,
   .cards .card figcaption,
