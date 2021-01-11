@@ -21,7 +21,9 @@ body {
   }
   
   .card {
-    background-color: #f7f7f7;
+      display: flex !important;
+      flex-direction: row !important;
+     background-color: #f7f7f7;
     margin: 0 auto 25px;
     margin-top: 50px;
     -moz-border-radius: 2px;

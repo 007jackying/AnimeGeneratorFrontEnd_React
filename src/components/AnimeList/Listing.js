@@ -54,15 +54,18 @@ const Listing = (type) => {
     const movieCards = movies.map((movie) =>
 
 
-	
+		<Link to={{
+      pathname: '/viewDetails/' + movie.title,
+      value: {
+        movie
+      }
+    }} variant="primary">
 
-		<figure class="card">
-
-			<img src={movie.picture} />
-
-			<figcaption>{movie.title}</figcaption>
-
+		<figure class="card" >
+   	<img src={movie.picture}/>
+	<figcaption>{movie.title}</figcaption>
 		</figure>
+    </Link>
 
 
 

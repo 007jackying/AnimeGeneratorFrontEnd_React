@@ -2,7 +2,9 @@
 .card:hover{
   cursor: pointer;
 
+
 }
+
   .abs,
   h2:after,
   .cards .card figcaption,
@@ -91,6 +93,7 @@
   .cards,
   .news {
     flex-flow: row wrap;
+    
   }
   .cards .card,
   .news .card {
