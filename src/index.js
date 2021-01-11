@@ -8,7 +8,7 @@ import './App.css';
 import axios from 'axios';
 import MetaTags from 'react-meta-tags';
 
-axios.defaults.baseURL = 'http://134.122.40.2/';
+axios.defaults.baseURL = 'https://www.thlee.site/';
 
 ReactDOM.render(
   <>
