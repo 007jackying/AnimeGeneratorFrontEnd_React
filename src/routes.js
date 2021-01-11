@@ -10,15 +10,12 @@ import {Gatcha} from "./components/Gatcha";
 
 import {ViewDetails} from './components/viewDetails'
 import { Router,Route, Switch, Redirect } from 'react-router-dom';
-import MetaTags from 'react-meta-tags';
+
 
 export const Routes = () => {
   return (
     <div className="container">
      <NBar/>
-     <MetaTags>
-      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> 
-    </MetaTags>
       <Switch>
         <Route exact path="/Home" component={Home} />
         <Route exact path="/">
