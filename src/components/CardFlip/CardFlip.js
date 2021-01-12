@@ -8,7 +8,6 @@ import picture from '../../img/cardback.png';
 
 const CardFlip = (props) => {
     const movie = props.data;
-    console.log("props in card", movie)
 
     const [isFlipped, setIsFlipped] = useState(false);
     const [count, setCount] = useState(0);
@@ -18,12 +17,6 @@ const CardFlip = (props) => {
 
     const handleClick = () => {
         setIsFlipped(!isFlipped);
-        // <Card onClick={handleClick} className="p-3">
-        // <Card.Img variant="top" src='https://wallpaperaccess.com/full/1152503.jpg' />
-        //     <blockquote className="blockquote mb-0 card-body">
-        //         <h1>{movie.count}</h1>
-        //     </blockquote>
-        // </Card>
     };
     return (
         <ReactCardFlip className="cards" isFlipped={isFlipped} 
@@ -39,7 +32,7 @@ const CardFlip = (props) => {
                 }
             }} variant="primary">
                 <figure className="cards" >
-                    <img src={movie.animeImagePath} />
+                    <img src={movie.imgLink.imageLink} />
                     <figcaption>{movie.animeTitle}</figcaption>
                 </figure>
             </Link>

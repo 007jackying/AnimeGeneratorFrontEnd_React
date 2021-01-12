@@ -10,15 +10,15 @@ import axios from "axios";
 const Register = props => {
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = async data => {
-        console.log("onsubmit: ", data);
+  
         if(data){
             const response = await axios.post(`user/register`,{data});
-            console.log("responded data: ", response.data);
+      
         }
        
     };
 
-    console.log(errors);
+
 
     return (
         <div className="RegisterForm">

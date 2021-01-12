@@ -11,7 +11,7 @@ const register = (firstName,lastName,username, email, password) => {
         password:password,
         email:email
     }
-    console.log("data sent", data)
+  
   return axios.post("user/register", data);
 };
 
@@ -23,9 +23,9 @@ const login = (username, password) => {
   return axios
     .post("user/login", data)
     .then((response) => {
-        console.log("reponse",response)
+        
       if (response.data.accessToken) {
-        console.log("token ",response.data.accessToken)
+    
         localStorage.setItem("user", JSON.stringify(response.data));
       }
 
@@ -38,7 +38,7 @@ const logout = () => {
 };
 
 const getCurrentUser = () => {
-    console.log('current user ',localStorage.getItem("user"))
+  
   return JSON.parse(localStorage.getItem("user"));
 };
 

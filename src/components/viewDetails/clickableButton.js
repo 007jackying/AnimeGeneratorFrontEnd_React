@@ -26,13 +26,13 @@ const ViewDetails = () => {
 
     }, [])
     if (typeof posts.data !== 'undefined') {
-        console.log(posts.data.data.title);
+      
     }
 
 
     function MovieCardListDetailed() {
         const data = posts.data.data;
-        console.log("moviecard received", data);
+       
         if (data) {
             return (
                 <Container className="custom-card">

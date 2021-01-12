@@ -47,10 +47,10 @@ const Listing = (type) => {
   }
 
   function MovieCardList(props) {
-    console.log("props: ", props);
+  
 
     const movies = props.movies;
-    console.log("movies: ", movies);
+    
     const movieCards = movies.map((movie) =>
 
 
@@ -61,9 +61,9 @@ const Listing = (type) => {
       }
     }} variant="primary">
 
-		<figure class="card" >
+		<figure className="card" >
    	<img src={movie.picture}/>
-	<figcaption>{movie.title}</figcaption>
+	<figcaption className="captionlist movietitle">{movie.title}</figcaption>
 		</figure>
     </Link>
 

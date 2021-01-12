@@ -7,8 +7,9 @@ import { useForm } from "react-hook-form";
 import ReactCardFlip from 'react-card-flip';
 import { CardFlip } from "../CardFlip";
 import './Gatcha.css';
+const malScraper = require('mal-scraper');
 // console.log("Results: ", posts);
-const Gatcha = () => {
+const Gatcha =  () => {
     
 
     const { register, handleSubmit, watch, errors } = useForm();
@@ -19,28 +20,26 @@ const Gatcha = () => {
     const [loading, setLoading] = useState(true);
     const [click,setClick]= useState(true);
     const onSubmit = async data => {
-        console.log("onsubmit: ", data);
-        const response = await axios.get(`anime/getuser/${data.username}`);
-        console.log("responded data: ", response.data);
 
-        var animelist = response.data.data.filter(PlanToWatchList);
-        let n = 10;
-        if (animelist.length < 10) {
-            n = animelist.length;
-        }
-        console.log("after filtered: ", animelist);
-        let random = animelist.sort(() => .5 - Math.random()).slice(0, n);
-        console.log("random ",random)
+        const response = await axios.post(`anime/gachamode`,{username: data.username});
+       
+        const random = response.data.data;
         const animeurlformat = 'https://myanimelist.net';
+        
         for (let i = 0; i < random.length; i++) {
             let aurl = random[i].animeUrl;
             random[i].link = animeurlformat + aurl;
             random[i].count = i+1;
+            random[i].hdimg = await malScraper.getPictures({
+                name: random[i].animeTitle,
+                id: random[i].animeId
+              })
+            random[i].imgLink = random[i].hdimg[0];
         }
         setPosts(random);
         setLoading(false);
         setClick(false);
-        console.log("random generated: ", random);
+        
     };
 
 
@@ -57,9 +56,9 @@ const Gatcha = () => {
     }
 
     function MovieCardList(props) {
-        console.log("props: ", props);
+    
         const movies = props.movies;
-        console.log("movies: ", movies);
+   
         const movieCards = movies.map((movie) =>
             <CardFlip data= {movie}/>
         );
