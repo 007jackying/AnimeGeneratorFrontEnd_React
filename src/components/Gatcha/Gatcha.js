@@ -26,16 +26,6 @@ const Gatcha =  () => {
         const random = response.data.data;
         const animeurlformat = 'https://myanimelist.net';
         
-        for (let i = 0; i < random.length; i++) {
-            let aurl = random[i].animeUrl;
-            random[i].link = animeurlformat + aurl;
-            random[i].count = i+1;
-            random[i].hdimg = await malScraper.getPictures({
-                name: random[i].animeTitle,
-                id: random[i].animeId
-              })
-            random[i].imgLink = random[i].hdimg[0];
-        }
         setPosts(random);
         setLoading(false);
         setClick(false);
