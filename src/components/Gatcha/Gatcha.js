@@ -29,6 +29,7 @@ const Gatcha =  () => {
         setPosts(random);
         setLoading(false);
         setClick(false);
+        console.log("click? ",click)
         
     };
 
@@ -60,17 +61,18 @@ const Gatcha =  () => {
     return (
         <>
             <div className="noNameDiv">
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form className="AnimelistUsername" onSubmit={handleSubmit(onSubmit)}>
                     {/* register your input into the hook by invoking the "register" function */}
+                            <h6>If you dont have myanimelist username you can try insert this username below:  <strong>Kylart</strong></h6>
                             Please enter Myanimelist.net username: <input name="username"  ref={register({ required: true })}/> 
                     {/* errors will return when field validation fails  */}
                     {errors.username && <span>This field is required</span>}
 
-                    <input type="submit" value={click? "TRY YOUR LUCK!" : "Try Again!"} />
+                    <input type="submit" value={click? "TRY YOUR LUCK!" : "Reroll"} />
                 </form>
 
             </div>
-            {loading ? <Image className="replacehover"  src="https://media.giphy.com/media/bzvjJOW9sN8aR09XC8/giphy.gif"/> : <div class="cards"><MovieCardList movies={posts} /></div>
+            {loading ? <> <h6 className="AnimelistUsername">Please wait for a few second to load, the server is slow today!</h6><Image className="replacehover"  src="https://media.giphy.com/media/bzvjJOW9sN8aR09XC8/giphy.gif"/> </>: <div className="cards"><MovieCardList movies={posts} /></div>
 
             }
 

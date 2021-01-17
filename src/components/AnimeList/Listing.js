@@ -74,10 +74,10 @@ const Listing = (type) => {
      
     );
     return (
-      <div class="wrapper">
+      <div className="wrapper">
 
 	<h2><strong>Latest Release: <span>({props.movies.length})</span></strong></h2>
-  <div class="cards">
+  <div className="cards">
   {movieCards}
   </div>
       </div>

@@ -1,3 +1,26 @@
 .frontflipcard:hover {
     background-image: url("../../img/cardback.png") !important;
 }
+
+.react-card-flip{
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+
+.cards{
+    margin-left: 18px !important;
+}
+
+.react-card-back{
+    height: 388px;
+    width: 200px;
+    background-color: white;
+}
+.imageincard{
+    max-width: 188px;
+    max-height: 388px;
+}
+.captionstitle{
+    background-color: white !important;
+    min-width: 200px;
+}
