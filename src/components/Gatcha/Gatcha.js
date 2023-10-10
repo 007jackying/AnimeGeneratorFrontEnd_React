@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Card, Button, Spinner, Image, Col, Row, Container } from 'react-bootstrap';
 import axios from 'axios';
-import { Link, useParams, useLocation } from 'react-router-dom';
-import { func } from "prop-types";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import ReactCardFlip from 'react-card-flip';
 import { CardFlip } from "../CardFlip";
 import './Gatcha.css';
 // console.log("Results: ", posts);
@@ -20,7 +16,7 @@ const Gatcha = () => {
     const [click,setClick]= useState(true);
     const onSubmit = async data => {
         console.log("onsubmit: ", data);
-        const response = await axios.get(`anime/getuser/${data.username}`);
+        const response = await axios.get(`http://localhost:5000/anime/getuser/${data.username}`);
         console.log("responded data: ", response.data);
 
         var animelist = response.data.data.filter(PlanToWatchList);
@@ -94,7 +90,7 @@ const Gatcha = () => {
     return (
         <>
             <div>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} style={{backgroundColor:'white'}}>
                     {/* register your input into the hook by invoking the "register" function */}
                             Please enter Myanimelist.net username: <input name="username"  ref={register({ required: true })}/> 
                     {/* errors will return when field validation fails  */}
@@ -104,7 +100,7 @@ const Gatcha = () => {
                 </form>
 
             </div>
-            {loading ? <Image className="replacehover"  src="https://media.giphy.com/media/lT4N7JiPGATIhVwR91/giphy.gif"/> : <div><MovieCardList movies={posts} /></div>
+            {loading ? <i class="fas fa-circle-notch fa-spin"></i> : <div><MovieCardList movies={posts} /></div>
 
             }
 

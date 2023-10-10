@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import { Card, Button, Spinner } from 'react-bootstrap';
+import React, { useEffect, useState } from "react";
+import { Card, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -13,7 +13,7 @@ const Listing = (type) => {
   // const [animes, setAnimes] = useState(null);
 
   useEffect(async () => {
-    const result = await axios.post('anime/seasonlist/', { year: thisYear(), season: seasonThisYear(), type: "TV" })
+    const result = await axios.post('http://localhost:5000/anime/seasonlist/', { year: thisYear(), season: seasonThisYear(), type: "TV" })
     // const data = await result.json();
     const item = result.data;
     setPosts(item);

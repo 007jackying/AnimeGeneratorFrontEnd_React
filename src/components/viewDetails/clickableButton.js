@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Card, Button, Spinner, Image, Col, Row, Container, ResponsiveEmbed } from 'react-bootstrap';
 import axios from 'axios';
-import { Link, useParams, useLocation } from 'react-router-dom';
-import { func } from "prop-types";
+import React, { useEffect, useState } from "react";
+import { Col, Container, Image, ResponsiveEmbed, Row, Spinner } from 'react-bootstrap';
+import { useLocation, useParams } from 'react-router-dom';
 import './clickableButton.css';
 
 const ViewDetails = () => {
@@ -17,7 +16,7 @@ const ViewDetails = () => {
     // const [animes, setAnimes] = useState(null);
 
     useEffect(async () => {
-        const data = await axios.post('anime/getByurl/', { link: link })
+        const data = await axios.post('http://localhost:5000/anime/getByurl/',{link:link})
         // const data = await result.json();
         const item = await data;
         await setPosts(data);
