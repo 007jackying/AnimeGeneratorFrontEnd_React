@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.js';
 
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Routes } from './routes'; // where we are going to specify our routes
-import './App.css';
 import axios from 'axios';
+import { BrowserRouter as Router } from 'react-router-dom';
+import './App.css';
+import { Routes } from './routes'; // where we are going to specify our routes
 
 
-axios.defaults.baseURL = 'https://www.thlee.site/';
+axios.defaults.baseURL = 'https://dreamanime.thleedev.codes/';
 
 ReactDOM.render(
   <div className="wholepage container">
