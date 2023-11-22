@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Card, Button, Spinner, Image, Col, Row, Container } from 'react-bootstrap';
 import axios from 'axios';
-import { Link, useParams, useLocation } from 'react-router-dom';
-import { func } from "prop-types";
+import React, { useState } from "react";
+import { Image } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
-import ReactCardFlip from 'react-card-flip';
 import { CardFlip } from "../CardFlip";
 import './Gatcha.css';
 const malScraper = require('mal-scraper');
@@ -21,7 +18,7 @@ const Gatcha =  () => {
     const [click,setClick]= useState(true);
     const onSubmit = async data => {
 
-        const response = await axios.post(`anime/gachamode`,{username: data.username});
+        const response = await axios.post(`anime/getuser`,{username: data.username});
        
         const random = response.data.data;
         const animeurlformat = 'https://myanimelist.net';
