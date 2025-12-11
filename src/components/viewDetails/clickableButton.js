@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, Spinner, Image, Col, Row, Container, ResponsiveEmbed } from 'react-bootstrap';
+import { Card, Button, Spinner, Image, Col, Row, Container } from 'react-bootstrap';
 import axios from 'axios';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import { func } from "prop-types";
@@ -48,10 +48,10 @@ const ViewDetails = () => {
                         </Col>
                         <Col sm="8" className="movie-Description">
                             <h4>{data.title}</h4>
-                            <ResponsiveEmbed aspectRatio="16by9">
+                            <div className="ratio ratio-16x9">
                                 <embed type="image/svg+xml" src={data.trailer} />
-                            </ResponsiveEmbed>
-                            
+                            </div>
+
 
                             <p>{data.synopsis}</p>
 
